@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_222134) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_180146) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animails", force: :cascade do |t|
-    t.integer "common_name"
     t.string "scientific_binomial"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "common_name1"
+  end
+
+  create_table "sightings", force: :cascade do |t|
+    t.integer "animail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "latitude"
+    t.integer "longitude"
+    t.integer "date"
   end
 
 end
